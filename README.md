@@ -75,18 +75,17 @@ There is open source test database recommended by MySQL: https://github.com/data
 * execute the query_test
 ./query_test 
 got 10 rows:
-11935	1963-03-23	           Aamer	     Jayawardene	M	1996-10-26
-13011	1955-02-25	           Aamer	       Glowinski	F	1989-10-08
-22279	1959-01-30	           Aamer	         Kornyak	M	1985-02-25
-20678	1963-12-25	           Aamer	         Parveen	F	1987-03-25
-23269	1952-02-15	           Aamer	         Szmurlo	M	1988-05-25
-12160	1954-12-11	           Aamer	     Garrabrants	M	1989-09-19
-24404	1960-04-21	           Aamer	         Tsukuda	M	1998-12-25
-11800	1958-12-09	           Aamer	         Fraisse	M	1990-08-08
-28043	1957-07-13	           Aamer	           Kroll	F	1986-05-17
-15332	1961-12-29	           Aamer	           Slutz	F	1989-05-19
 
-## To-do
-
-   
+|  emp_no|birth_date|      first_name|       last_name|gender|       hire_date|
+|--------|----------|----------------|----------------|------|----------------|
+|   11935|1963-03-23|           Aamer|     Jayawardene|     M|      1996-10-26|
+|   13011|1955-02-25|           Aamer|       Glowinski|     F|      1989-10-08|
+|   22279|1959-01-30|           Aamer|         Kornyak|     M|      1985-02-25|
+|   20678|1963-12-25|           Aamer|         Parveen|     F|      1987-03-25|
+|   23269|1952-02-15|           Aamer|         Szmurlo|     M|      1988-05-25|
+|   12160|1954-12-11|           Aamer|     Garrabrants|     M|      1989-09-19|
+|   24404|1960-04-21|           Aamer|         Tsukuda|     M|      1998-12-25|
+|   11800|1958-12-09|           Aamer|         Fraisse|     M|      1990-08-08|
+|   28043|1957-07-13|           Aamer|           Kroll|     F|      1986-05-17|
+|   15332|1961-12-29|           Aamer|           Slutz|     F|      1989-05-19|
 
