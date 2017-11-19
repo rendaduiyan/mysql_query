@@ -28,7 +28,7 @@ All entity class needs to derive from this base class to make sure the interface
   public:
       virtual unsigned int num_fields () const = 0;
   };
-```C++
+
 ### RowHandler
 All handler for entity class needs to derive from this base class to make sure the interface is defined.
 ```C++
@@ -47,7 +47,7 @@ All handler for entity class needs to derive from this base class to make sure t
   public:
       virtual bool handle_row (MYSQL_ROW row, unsigned long* lengths, unsigned int num_fields, T &c) = 0;
   };
-```C++
+
 
 ### Template function for SQL query
 ```C++
@@ -63,7 +63,7 @@ All handler for entity class needs to derive from this base class to make sure t
 
     template <class T>
     bool query(RowHandler<T> *rh, const string& query_sql, vector<T>& array)
-```C++
+
 ## Dependency
 * mysql client lib (i.e, libmysqlclient-dev for ubuntu)
 ## Build
