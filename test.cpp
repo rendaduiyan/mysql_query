@@ -3,6 +3,7 @@
 
 using std::ostream;
 using std::setw;
+using std::setfill;
 
 /*
 mysql> desc employees;
@@ -25,8 +26,12 @@ class Employees : public MetaData
 public:
     friend ostream& operator<< (ostream &os, const Employees &e)
     {
-        os << e.emp_no << "\t" << e.birth_date << "\t" << setw (16) << e.first_name << "\t"
-            << setw (16) << e.last_name << "\t" << e.gender << "\t" << e.hire_date << endl;
+        os << "|" << setw (8) << e.emp_no << "|" 
+            << setw (10) << e.birth_date << "|" 
+            << setw (16) << e.first_name << "|"
+            << setw (16) << e.last_name << "|" 
+            << setw (6) << e.gender << "|" 
+            << setw (16) << e.hire_date << "|" << endl;
         return os;
     }
     virtual unsigned int num_fields () const
@@ -112,6 +117,19 @@ int main (int argc, char **argv)
         }
         using std::cout;
         cout << "got " << results.size () << " rows:" << endl;
+        cout << "|" << setw (8) << "emp_no" << "|" 
+            << setw (10) << "birth_date" << "|" 
+            << setw (16) << "first_name" << "|"
+            << setw (16) << "last_name" << "|" 
+            << setw (6) << "gender" << "|"
+            << setw (16) << "hire_date" << "|" << endl;
+        cout << "|" << setw (8 + 1) << setfill ('-') << "|" 
+            << setw (10 + 1) << setfill ('-') << "|" 
+            << setw (16 + 1) << setfill ('-') << "|"
+            << setw (16 + 1) << setfill ('-') << "|" 
+            << setw (6 + 1) << setfill ('-') << "|"
+            << setw (16 + 1) << setfill ('-') << "|" << endl;
+        cout << setfill (' ');
         for (vector<Employees>::const_iterator cit = results.begin (); cit != results.end (); ++ cit)
         {
             cout << *cit;
