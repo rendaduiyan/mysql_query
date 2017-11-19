@@ -17,7 +17,7 @@ If we look into the actual source code, we can get the skeleton of this procedur
 
 If we use C++ template class/function, can we life easier? This is why this project is created.
 ### MetaData 
-All entity class needs to derive from this base class to make sure the interface is available.
+All entity classes need to derive from this base class to make sure the interface is available.
 ```C++
   /*
    * @class MetaData has an interface to return the target field number
@@ -30,7 +30,7 @@ All entity class needs to derive from this base class to make sure the interface
   };
 
 ### RowHandler
-All handler for entity class needs to derive from this base class to make sure the interface is defined.
+All handlers for entity classes needs to derive from this base class to make sure the interface is defined.
 ```C++
 /*
    * @class RowHandler has an interface to handle one row, whose type is MYSQL_ROW;
