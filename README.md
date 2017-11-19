@@ -1,4 +1,5 @@
 # mysql_query
+
 ## Overview
 Typically when your application want to fetch data from MySQL database, the following steps needs to be done:
 * init (mysql_init)
@@ -28,7 +29,7 @@ All entity classes need to derive from this base class to make sure the interfac
   public:
       virtual unsigned int num_fields () const = 0;
   };
-
+```
 ### RowHandler
 All handlers for entity classes needs to derive from this base class to make sure the interface is defined.
 ```C++
@@ -47,7 +48,7 @@ All handlers for entity classes needs to derive from this base class to make sur
   public:
       virtual bool handle_row (MYSQL_ROW row, unsigned long* lengths, unsigned int num_fields, T &c) = 0;
   };
-
+```
 
 ### Template function for SQL query
 ```C++
@@ -63,11 +64,11 @@ All handlers for entity classes needs to derive from this base class to make sur
 
     template <class T>
     bool query(RowHandler<T> *rh, const string& query_sql, vector<T>& array)
-
+```
 ## Dependency
 * mysql client lib (i.e, libmysqlclient-dev for ubuntu)
 ## Build
-*g++ -g -o query_test query.cpp test.cpp `pkg-config --cflags --libs mysqlclient`
+* g++ -g -o query_test query.cpp test.cpp `pkg-config --cflags --libs mysqlclient`
 ## Test
 * create test database
 There is open source test database recommended by MySQL: https://github.com/datacharmer/test_db.
