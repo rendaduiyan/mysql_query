@@ -14,9 +14,11 @@ If we look into the actual source code, we can get the skeleton of this procedur
 * execute the SQL statement
 * handle the results in MYSQL_ROW
 * handle the exceptions
+
 If we use C++ template class/function, can we life easier? This is why this project is created.
 ### MetaData 
 All entity class needs to derive from this base class to make sure the interface is available.
+```C++
   /*
    * @class MetaData has an interface to return the target field number
    */
@@ -26,8 +28,10 @@ All entity class needs to derive from this base class to make sure the interface
   public:
       virtual unsigned int num_fields () const = 0;
   };
+```C++
 ### RowHandler
 All handler for entity class needs to derive from this base class to make sure the interface is defined.
+```C++
 /*
    * @class RowHandler has an interface to handle one row, whose type is MYSQL_ROW;
    * it is an array of strings.
@@ -43,7 +47,10 @@ All handler for entity class needs to derive from this base class to make sure t
   public:
       virtual bool handle_row (MYSQL_ROW row, unsigned long* lengths, unsigned int num_fields, T &c) = 0;
   };
+```C++
+
 ### Template function for SQL query
+```C++
     /*
      * template function to run a query sql and save results into a container
      * @H, handler class for results
@@ -56,6 +63,7 @@ All handler for entity class needs to derive from this base class to make sure t
 
     template <class T>
     bool query(RowHandler<T> *rh, const string& query_sql, vector<T>& array)
+```C++
 ## Dependency
 * mysql client lib (i.e, libmysqlclient-dev for ubuntu)
 ## Build
