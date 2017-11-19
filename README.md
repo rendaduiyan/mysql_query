@@ -1,5 +1,5 @@
 # mysql_query
-##Overview
+## Overview
 Typically when your application want to fetch data from MySQL database, the following steps needs to be done:
 * init (mysql_init)
 * connect to database (mysql_real_connect)
@@ -8,14 +8,14 @@ Typically when your application want to fetch data from MySQL database, the foll
 * handle data one row after another (mysql_fetch_row, mysql_num_fields, mysql_fetch_lengths)
 * clean up (mysql_close)
 For applications, it needs to extract meta data from those results and move on to next step. Can we simplify this step?
-##Template method
+## Template method
 If we look into the actual source code, we can get the skeleton of this procedure:
 * construct the SQL statement to be executed
 * execute the SQL statement
 * handle the results in MYSQL_ROW
 * handle the exceptions
 If we use C++ template class/function, can we life easier? This is why this project is created.
-###MetaData 
+### MetaData 
 All entity class needs to derive from this base class to make sure the interface is available.
   /*
    * @class MetaData has an interface to return the target field number
@@ -26,7 +26,7 @@ All entity class needs to derive from this base class to make sure the interface
   public:
       virtual unsigned int num_fields () const = 0;
   };
-###RowHandler
+### RowHandler
 All handler for entity class needs to derive from this base class to make sure the interface is defined.
 /*
    * @class RowHandler has an interface to handle one row, whose type is MYSQL_ROW;
@@ -43,7 +43,7 @@ All handler for entity class needs to derive from this base class to make sure t
   public:
       virtual bool handle_row (MYSQL_ROW row, unsigned long* lengths, unsigned int num_fields, T &c) = 0;
   };
-###Template function for SQL query
+### Template function for SQL query
     /*
      * template function to run a query sql and save results into a container
      * @H, handler class for results
@@ -56,11 +56,11 @@ All handler for entity class needs to derive from this base class to make sure t
 
     template <class T>
     bool query(RowHandler<T> *rh, const string& query_sql, vector<T>& array)
-##dependency
+## Dependency
 * mysql client lib (i.e, libmysqlclient-dev for ubuntu)
-##Build
+## Build
 *g++ -g -o query_test query.cpp test.cpp `pkg-config --cflags --libs mysqlclient`
-##Test
+## Test
 * create test database
 There is open source test database recommended by MySQL: https://github.com/datacharmer/test_db.
 * execute the query_test
@@ -77,7 +77,7 @@ got 10 rows:
 28043	1957-07-13	           Aamer	           Kroll	F	1986-05-17
 15332	1961-12-29	           Aamer	           Slutz	F	1989-05-19
 
-##To-do
+## To-do
 
    
 
