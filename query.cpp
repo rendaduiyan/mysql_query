@@ -1,3 +1,8 @@
+/*
+ * query.cpp, an abstraction for SQL query from MySQL
+ * Copyright (c) 2018, haibolei <duiyanrenda@gmail.com>
+ */
+
 #include "query.hpp"
 
 

@@ -1,3 +1,8 @@
+/*
+ * test.c, function test and an example for templated query from MySQL
+ * Copyright (c) 2018, haibolei <duiyanrenda@gmail.com>
+ */
+
 #include "query.hpp"
 #include <iomanip>
 
